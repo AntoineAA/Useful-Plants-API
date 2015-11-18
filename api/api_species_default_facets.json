@@ -1,0 +1,75 @@
+{
+	"facets": {
+		"families": {
+			"terms": {
+				"field": "family.name.untouched",
+				"size": 0,
+				"order" :{ "_term": "asc" }
+			}
+		},
+		"genera": {
+			"terms": {
+				"field": "genus.name.untouched",
+				"size": 0,
+				"order" :{ "_term": "asc" }
+			}
+		},
+		"usages": {
+			"nested": { "path": "usages" },
+			"aggs": {
+				"usages": {
+					"terms": {
+						"field": "usages.usage.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					}
+				}
+			}
+		},
+		"sub_usages": {
+			"nested": { "path": "usages" },
+			"aggs": {
+				"names": {
+					"terms": {
+						"field": "usages.names.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					}
+				}
+			}
+		},
+		"traits": {
+			"nested": { "path": "traits" },
+			"aggs": {
+				"traits": {
+					"terms": {
+						"field": "traits.name.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					},
+					"aggs": {
+						"values": {
+							"terms": {
+								"field": "traits.values.untouched",
+								"size": 0,
+								"order": { "_term": "asc" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"pnet": {
+			"nested": { "path": "pnet.projects" },
+			"aggs": {
+				"pnet": {
+					"terms": {
+						"field": "pnet.projects.name.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					}
+				}
+			}
+		}
+	}
+}

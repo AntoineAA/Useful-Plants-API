@@ -1,0 +1,41 @@
+{
+	"facets": {
+		"families": {
+			"terms": {
+				"field": "family.name.untouched",
+				"size": 0,
+				"order" :{ "_term": "asc" }
+			},
+			"aggs": {
+				"genera": {
+					"terms": {
+						"field": "genus.name.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					}
+				}
+			}
+		},
+		"usages": {
+			"nested": { "path": "usages" },
+			"aggs": {
+				"usages": {
+					"terms": {
+						"field": "usages.usage.untouched",
+						"size": 0,
+						"order": { "_term": "asc" }
+					},
+					"aggs": {
+						"names": {
+							"terms": {
+								"field": "usages.names.untouched",
+								"size": 0,
+								"order": { "_term": "asc" }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,218 @@
+{
+	"mapping": {
+		"mappings": {
+			"type": {
+				"properties": {
+					"_id": { "type": "string", "include_in_all": false },
+					"_rev": { "type": "string", "include_in_all": false },
+					"id": { "type": "integer", "include_in_all": false },
+					"genus_id": { "type": "integer", "include_in_all": false },
+					"created": { "type": "date", "include_in_all": false },
+					"modified": { "type": "date", "include_in_all": false },
+					"comment": { "type": "string", "include_in_all": false },
+					"name": {
+						"type": "multi_field",
+						"fields": {
+							"name": {"type": "string", "index": "analyzed"},
+							"untouched": {"type": "string", "index": "not_analyzed"}
+						}
+					},
+					"author": {
+						"type": "multi_field",
+						"fields": {
+							"author": {"type": "string", "index": "analyzed"},
+							"untouched": {"type": "string", "index": "not_analyzed"}
+						}
+					},
+					"family": {
+						"type": "object",
+						"properties": {
+							"id": { "type": "integer", "include_in_all": false },
+							"created": { "type": "date", "include_in_all": false },
+							"modified": { "type": "date", "include_in_all": false },
+							"comment": { "type": "string", "include_in_all": false },
+							"name": {
+								"type": "multi_field",
+								"fields": {
+									"name": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							},
+							"author": {
+								"type": "multi_field",
+								"fields": {
+									"author": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							}
+						}
+					},
+					"genus": {
+						"type": "object",
+						"properties": {
+							"id": { "type": "integer", "include_in_all": false },
+							"family_id": { "type": "integer", "include_in_all": false },
+							"created": { "type": "date", "include_in_all": false },
+							"modified": { "type": "date", "include_in_all": false },
+							"comment": { "type": "string", "include_in_all": false },
+							"name": {
+								"type": "multi_field",
+								"fields": {
+									"name": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							},
+							"author": {
+								"type": "multi_field",
+								"fields": {
+									"author": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							},
+							"commons": {
+								"type": "nested",
+								"properties": {
+									"language": {
+										"type": "multi_field",
+										"fields": {
+											"language": {"type": "string", "index": "analyzed"},
+											"untouched": {"type": "string", "index": "not_analyzed"}
+										}
+									},
+									"code": { "type": "string", "include_in_all": false },
+									"names": {
+										"type": "multi_field",
+										"fields": {
+											"names": {"type": "string", "index": "analyzed"},
+											"untouched": {"type": "string", "index": "not_analyzed"}
+										}
+									}
+								}
+							}
+						}
+					},
+					"usages": {
+						"type": "nested",
+						"properties": {
+							"usage": {
+								"type": "multi_field",
+								"fields": {
+									"usage": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							},
+							"names": {
+								"type": "multi_field",
+								"fields": {
+									"names": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							}
+						}
+					},
+					"commons": {
+						"type": "nested",
+						"properties": {
+							"language": {
+								"type": "multi_field",
+								"fields": {
+									"language": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							},
+							"code": { "type": "string", "include_in_all": false },
+							"names": {
+								"type": "multi_field",
+								"fields": {
+									"names": {"type": "string", "index": "analyzed"},
+									"untouched": {"type": "string", "index": "not_analyzed"}
+								}
+							}
+						}
+					},
+					"gbif_key": { "type": "integer", "include_in_all": false },
+					"gbif_error": { "type": "boolean", "include_in_all": false },
+					"eol_id": { "type": "integer", "include_in_all": false },
+					"eol_error": { "type": "boolean", "include_in_all": false },
+					"media": {
+						"type": "nested",
+						"properties": {
+							"floris_source": { "type": "string", "include_in_all": false },
+							"floris_media_url": { "type": "string", "include_in_all": false },
+							"floris_media_type": { "type": "string", "include_in_all": false },
+							"floris_media_title": { "type": "string", "include_in_all": false },
+							"floris_media_description": { "type": "string", "include_in_all": false },
+							"floris_media_author": { "type": "string", "include_in_all": false },
+							"floris_media_licence": { "type": "string", "include_in_all": false },
+							"source": {"type": "object", "include_in_all": false }
+						}
+					},
+					"traits": {
+						"type": "nested",
+						"properties": {
+							"name": {
+								"type": "multi_field",
+								"include_in_all": false,
+								"fields": {
+									"name": {"type": "string", "index": "analyzed", "include_in_all": false},
+									"untouched": {"type": "string", "index": "not_analyzed", "include_in_all": false}
+								}
+							},
+							"values": {
+								"type": "multi_field",
+								"include_in_all": false,
+								"fields": {
+									"values": {"type": "string", "index": "analyzed", "include_in_all": false},
+									"untouched": {"type": "string", "index": "not_analyzed", "include_in_all": false}
+								}
+							}
+						}
+					},
+					"pnet_id": { "type": "string", "include_in_all": false },
+					"pnet": {
+						"type": "object",
+						"properties": {
+							"image": { "type": "string", "include_in_all": false },
+							"projects": {
+								"type": "nested",
+								"properties": {
+									"id": { "type": "string", "include_in_all": false },
+									"name": {
+										"type": "multi_field",
+										"fields": {
+											"name": {"type": "string", "index": "analyzed"},
+											"untouched": {"type": "string", "index": "not_analyzed"}
+										}
+									},
+									"description": { "type": "string", "include_in_all": false }
+								}
+							},
+							"images": {
+								"type": "nested",
+								"properties": {
+									"url": { "type": "string", "include_in_all": false },
+									"author": { "type": "string", "include_in_all": false },
+									"locality": { "type": "string", "include_in_all": false },
+									"type": {
+										"type": "multi_field",
+										"fields": {
+											"type": {"type": "string", "index": "analyzed", "include_in_all": false },
+											"untouched": {"type": "string", "index": "not_analyzed", "include_in_all": false }
+										}
+									},
+									"date": {
+										"type": "multi_field",
+										"fields": {
+											"date": { "type": "date", "format": "YYYY-MM-dd", "include_in_all": false },
+											"untouched": { "type": "string", "index": "not_analyzed", "include_in_all": false }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

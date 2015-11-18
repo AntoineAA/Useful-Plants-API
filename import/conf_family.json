@@ -1,0 +1,16 @@
+{
+	"name": "family",
+	"db": "./data/family.dbf",
+	"fields": [
+		"FAMNO",
+		"FAMILY",
+		"FAMAUTHOR",
+		"CMT",
+		"CREATED",
+		"MODIFIED",
+		"VALIDFAMNO",
+		"SUBFAMILY",
+		"TRIBE",
+		"SUBTRIBE"
+	]
+}

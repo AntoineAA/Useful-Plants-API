@@ -1,0 +1,17 @@
+{
+	"name": "usage",
+	"db": "./data/econ.dbf",
+	"file_new_cat": "./data/econ_cat.csv",
+	"cat_col_origin": "label",
+	"cat_col_new_en": "new label en",
+	"cat_col_new_fr": "new label fr",
+	"file_new_usages": "./data/econ_usage.csv",
+	"use_col_origin": "label",
+	"use_col_new_en": "new label en",
+	"use_col_new_fr": "new label fr",
+	"fields": [
+		"TAXUSE",
+		"USETYPE",
+		"TAXNO"
+	]
+}

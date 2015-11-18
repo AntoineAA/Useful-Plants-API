@@ -1,0 +1,27 @@
+{
+	"name": "species",
+	"db": "./data/species.dbf",
+	"fields": [
+		"TAXNO",
+		"TAXON",
+		"TAXAUTHOR",
+		"TAXCMT",
+		"CREATED",
+		"MODIFIED",
+		"VALIDTAXNO",
+		"GNO",
+		"SHYBRID",
+		"SSPHYBRID",
+		"VARHYBRID",
+		"SVHYBRID",
+		"FHYBRID",
+		"SUBSP",
+		"SSPAUTHOR",
+		"VAR",
+		"VARAUTHOR",
+		"SUBVAR",
+		"SVAUTHOR",
+		"FORMA",
+		"FAUTHOR"
+	]
+}

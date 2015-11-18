@@ -1,0 +1,12 @@
+{
+	"name": "common",
+	"db": "./data/common.dbf",
+	"fields": [
+		"CNAME",
+		"TAXNO",
+		"LANGUAGE"
+	],
+	"mapping": {
+		"English": "en"
+	}
+}

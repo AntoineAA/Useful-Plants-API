@@ -1,0 +1,23 @@
+{
+	"name": "genus",
+	"db": "./data/genus.dbf",
+	"fields": [
+		"GNO",
+		"GENUS",
+		"GAUTHOR",
+		"CMT",
+		"CREATED",
+		"MODIFIED",
+		"VALIDGNO",
+		"FAMNO",
+		"CNAME",
+		"QUAL",
+		"GHYBRID",
+		"SUBGENUS",
+		"SECTION",
+		"SERIES",
+		"SUBSERIES"
+	],
+	"qualifier_value": "=",
+	"common_name_default_language": "English"
+}

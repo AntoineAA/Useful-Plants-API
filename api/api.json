@@ -1,0 +1,10 @@
+{
+	"config": [
+		"species",
+		"species_count",
+		"species_get",
+		"species_autocomplete",
+		"image",
+		"observation"
+	]
+}

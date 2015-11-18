@@ -1,0 +1,18 @@
+{
+	"query": {
+		"bool": {
+			"must": [
+				{
+					"nested": {
+						"path": "usages",
+						"query": {
+							"bool": {
+								"must": []
+							}
+						}
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "name": "useful-plants-api",
+  "version": "0.0.1",
+  "description": "Useful Plants REST API",
+  "author": "antoine.affouard <antoine.affouard@cirad.fr>",
+  "license": "GNU General Public License Version 3",
+  "contributors": [],
+  "private": true,
+  "main": "server.js",
+  "dependencies": {
+    "async": "~1.5.0",
+    "colors": "~1.1.2",
+    "easyimage": "~2.1.0",
+    "elasticsearch": "~9.0.0",
+    "fast-csv": "~0.6.0",
+    "fs": "0.0.2",
+    "geopoint": "~1.0.1",
+    "good": "~6.4.0",
+    "good-console": "~5.2.0",
+    "hapi": "~11.1.0",
+    "hapi-swagger": "~2.2.3",
+    "html-entities": "~1.2.0",
+    "inert": "^3.2.0",
+    "joi": "~7.0.0",
+    "md5": "~2.0.0",
+    "nano": "~6.1.5",
+    "node-dbf": "~0.1.0",
+    "path": "~0.12.7",
+    "request": "~2.65.0",
+    "sleep": "~3.0.0",
+    "underscore": "~1.8.3",
+    "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "lab": "~7.2.0",
+    "code": "~2.0.1"
+  }
+}

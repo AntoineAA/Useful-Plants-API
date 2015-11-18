@@ -1,0 +1,11 @@
+{
+	"name": "dist",
+	"db": "./data/dist.dbf",
+	"fields": [
+		"TAXNO",
+		"COUNTRY",
+		"STATE",
+		"STATUS",
+		"CMT"
+	]
+}
