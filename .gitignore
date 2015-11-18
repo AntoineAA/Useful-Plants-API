@@ -3,3 +3,6 @@
 env.json
 /import/data/*
 /images/*
+
+!import/data/econ_cat.csv
+!import/data/econ_usage.csv
