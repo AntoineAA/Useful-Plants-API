@@ -4,6 +4,7 @@ var easyimg = require('easyimage');
 var md5 = require('md5');
 var path = require('path');
 var fs = require('fs');
+var req = require('request');
 
 var env = require('../env');
 
@@ -45,37 +46,43 @@ module.exports.route = {
 					if (exists) {
 						reply.file(image_path);
 					} else {
-						easyimg.info(image_url).then(function (file) {
-							var image_size_width = (image_size == 'mini') ? env.images_mini_size : env.images_normal_size;
-							var image_size_height = (image_size == 'mini') ? env.images_mini_size : env.images_normal_size;
-
-							if (image_size == 'mini') {
-								easyimg.thumbnail({
-									src: image_url,
-									dst: image_path,
-									width: image_size_width,
-									height: image_size_height,
-									gravity: 'Center'
-								}).then(function (image) {
-									reply.file(image_path);
-								}, function (err) {
-									reply(json_error).code(404);
-								});
-							} else {
-								easyimg.resize({
-									src: image_url,
-									dst: image_path,
-									width: image_size_width,
-									height: image_size_height
-								}).then(function (image) {
-									reply.file(image_path);
-								}, function (err) {
-									reply(json_error).code(404);
-								});
+						req.get(image_url, function (get_err, get_res, get_body) {
+							if (get_res.request && get_res.request.uri && get_res.request.uri.href && get_res.request.uri.href != image_url) {
+								image_url = get_res.request.uri.href;
 							}
-						}, function (err) {
-							update_doc(resp._source, image_url);
-							reply(json_error).code(404);
+
+							easyimg.info(image_url).then(function (file) {
+								var image_size_width = (image_size == 'mini') ? env.images_mini_size : env.images_normal_size;
+								var image_size_height = (image_size == 'mini') ? env.images_mini_size : env.images_normal_size;
+
+								if (image_size == 'mini') {
+									easyimg.thumbnail({
+										src: image_url,
+										dst: image_path,
+										width: image_size_width,
+										height: image_size_height,
+										gravity: 'Center'
+									}).then(function (image) {
+										reply.file(image_path);
+									}, function (err) {
+										reply(json_error).code(404);
+									});
+								} else {
+									easyimg.resize({
+										src: image_url,
+										dst: image_path,
+										width: image_size_width,
+										height: image_size_height
+									}).then(function (image) {
+										reply.file(image_path);
+									}, function (err) {
+										reply(json_error).code(404);
+									});
+								}
+							}, function (err) {
+								update_doc(resp._source, image_url);
+								reply(json_error).code(404);
+							});
 						});
 					}
 				});
